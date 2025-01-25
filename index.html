@@ -1,0 +1,268 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	text-align:justify;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	text-align:justify;
+	line-height:105%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal>&lt;!DOCTYPE html&gt;</p>
+
+<p class=MsoNormal>&lt;html lang=&quot;en&quot;&gt;</p>
+
+<p class=MsoNormal>&lt;head&gt;</p>
+
+<p class=MsoNormal>  &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+
+<p class=MsoNormal>  &lt;meta name=&quot;viewport&quot;
+content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+
+<p class=MsoNormal>  &lt;title&gt;Roulette Wheel&lt;/title&gt;</p>
+
+<p class=MsoNormal>  &lt;style&gt;</p>
+
+<p class=MsoNormal>    body {</p>
+
+<p class=MsoNormal>      font-family: Arial, sans-serif;</p>
+
+<p class=MsoNormal>      text-align: center;</p>
+
+<p class=MsoNormal>      background: #f5f5f5;</p>
+
+<p class=MsoNormal>      padding: 20px;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>    h1 {</p>
+
+<p class=MsoNormal>      color: #333;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>    #wheel {</p>
+
+<p class=MsoNormal>      width: 300px;</p>
+
+<p class=MsoNormal>      height: 300px;</p>
+
+<p class=MsoNormal>      border-radius: 50%;</p>
+
+<p class=MsoNormal>      border: 10px solid #ccc;</p>
+
+<p class=MsoNormal>      position: relative;</p>
+
+<p class=MsoNormal>      margin: 20px auto;</p>
+
+<p class=MsoNormal>      overflow: hidden;</p>
+
+<p class=MsoNormal>      transform: rotate(0deg);</p>
+
+<p class=MsoNormal>      transition: transform 3s ease-out;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>    .slice {</p>
+
+<p class=MsoNormal>      position: absolute;</p>
+
+<p class=MsoNormal>      width: 100%;</p>
+
+<p class=MsoNormal>      height: 100%;</p>
+
+<p class=MsoNormal>      clip-path: polygon(50% 50%, 100% 0, 100% 100%);</p>
+
+<p class=MsoNormal>      display: flex;</p>
+
+<p class=MsoNormal>      align-items: center;</p>
+
+<p class=MsoNormal>      justify-content: center;</p>
+
+<p class=MsoNormal>      font-size: 18px;</p>
+
+<p class=MsoNormal>      font-weight: bold;</p>
+
+<p class=MsoNormal>      color: #fff;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>    #names {</p>
+
+<p class=MsoNormal>      margin: 20px;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>    input, button {</p>
+
+<p class=MsoNormal>      padding: 10px;</p>
+
+<p class=MsoNormal>      margin: 5px;</p>
+
+<p class=MsoNormal>      font-size: 16px;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>    #winner {</p>
+
+<p class=MsoNormal>      font-size: 24px;</p>
+
+<p class=MsoNormal>      font-weight: bold;</p>
+
+<p class=MsoNormal>      color: green;</p>
+
+<p class=MsoNormal>      margin-top: 20px;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>  &lt;/style&gt;</p>
+
+<p class=MsoNormal>&lt;/head&gt;</p>
+
+<p class=MsoNormal>&lt;body&gt;</p>
+
+<p class=MsoNormal>  &lt;h1&gt;Roulette Wheel&lt;/h1&gt;</p>
+
+<p class=MsoNormal>  &lt;div id=&quot;names&quot;&gt;</p>
+
+<p class=MsoNormal>    &lt;input type=&quot;text&quot; id=&quot;nameInput&quot;
+placeholder=&quot;Enter a name&quot;&gt;</p>
+
+<p class=MsoNormal>    &lt;button onclick=&quot;addName()&quot;&gt;Add
+Name&lt;/button&gt;</p>
+
+<p class=MsoNormal>  &lt;/div&gt;</p>
+
+<p class=MsoNormal>  &lt;div id=&quot;wheel&quot;&gt;&lt;/div&gt;</p>
+
+<p class=MsoNormal>  &lt;button onclick=&quot;spinWheel()&quot;&gt;Spin the
+Wheel&lt;/button&gt;</p>
+
+<p class=MsoNormal>  &lt;div id=&quot;winner&quot;&gt;&lt;/div&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>  &lt;script&gt;</p>
+
+<p class=MsoNormal>    let names = [];</p>
+
+<p class=MsoNormal>    const wheel = document.getElementById('wheel');</p>
+
+<p class=MsoNormal>    const winnerDiv = document.getElementById('winner');</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    function addName() {</p>
+
+<p class=MsoNormal>      const name =
+document.getElementById('nameInput').value.trim();</p>
+
+<p class=MsoNormal>      if (name) {</p>
+
+<p class=MsoNormal>        names.push(name);</p>
+
+<p class=MsoNormal>        document.getElementById('nameInput').value = '';</p>
+
+<p class=MsoNormal>        updateWheel();</p>
+
+<p class=MsoNormal>      }</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    function updateWheel() {</p>
+
+<p class=MsoNormal>      wheel.innerHTML = '';</p>
+
+<p class=MsoNormal>      const sliceAngle = 360 / names.length;</p>
+
+<p class=MsoNormal>      names.forEach((name, index) =&gt; {</p>
+
+<p class=MsoNormal>        const slice = document.createElement('div');</p>
+
+<p class=MsoNormal>        slice.className = 'slice';</p>
+
+<p class=MsoNormal>        slice.style.backgroundColor = `hsl(${index * (360 /
+names.length)}, 70%, 50%)`;</p>
+
+<p class=MsoNormal>        slice.style.transform = `rotate(${index *
+sliceAngle}deg)`;</p>
+
+<p class=MsoNormal>        slice.textContent = name;</p>
+
+<p class=MsoNormal>        wheel.appendChild(slice);</p>
+
+<p class=MsoNormal>      });</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    function spinWheel() {</p>
+
+<p class=MsoNormal>      if (names.length === 0) return;</p>
+
+<p class=MsoNormal>      const randomSpin = Math.floor(Math.random() * 3600) +
+1800;</p>
+
+<p class=MsoNormal>      wheel.style.transform = `rotate(${randomSpin}deg)`;</p>
+
+<p class=MsoNormal>      setTimeout(() =&gt; {</p>
+
+<p class=MsoNormal>        const winnerIndex = Math.floor(Math.random() *
+names.length);</p>
+
+<p class=MsoNormal>        winnerDiv.textContent = `Winner:
+${names[winnerIndex]}`;</p>
+
+<p class=MsoNormal>      }, 3000);</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>  &lt;/script&gt;</p>
+
+<p class=MsoNormal>&lt;/body&gt;</p>
+
+<p class=MsoNormal>&lt;/html&gt;</p>
+
+</div>
+
+</body>
+
+</html>
