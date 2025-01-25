@@ -84,4 +84,49 @@
     <div id="names"></div>
   </div>
   <button onclick="spinWheel()">Spin the Wheel</button>
-  <div id="winner
+  <div id="winner"></div>
+
+  <script>
+    let names = [];
+    const namesContainer = document.getElementById('names');
+    const winnerDiv = document.getElementById('winner');
+    const pin = document.getElementById('pin');
+
+    function addName() {
+      const name = document.getElementById('nameInput').value.trim();
+      if (name) {
+        names.push(name);
+        document.getElementById('nameInput').value = '';
+        updateNames();
+      }
+    }
+
+    function updateNames() {
+      namesContainer.innerHTML = '';
+      const angle = 360 / names.length;
+      names.forEach((name, index) => {
+        const nameElement = document.createElement('div');
+        nameElement.className = 'name';
+        nameElement.textContent = name;
+        const rad = (angle * index * Math.PI) / 180;
+        const x = 150 + 130 * Math.cos(rad);
+        const y = 150 + 130 * Math.sin(rad);
+        nameElement.style.left = `${x}px`;
+        nameElement.style.top = `${y}px`;
+        namesContainer.appendChild(nameElement);
+      });
+    }
+
+    function spinWheel() {
+      if (names.length === 0) return;
+      const randomSpin = Math.floor(Math.random() * 3600) + 1800;
+      pin.style.transition = 'transform 3s ease-out';
+      pin.style.transform = `rotate(${randomSpin}deg)`;
+      setTimeout(() => {
+        const winnerIndex = Math.floor(Math.random() * names.length);
+        winnerDiv.textContent = `Winner: ${names[winnerIndex]}`;
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
