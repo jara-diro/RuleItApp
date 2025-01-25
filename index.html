@@ -37,6 +37,7 @@
       color: #fff;
       transform-origin: 50% 100%;
       text-align: center;
+      clip-path: polygon(50% 50%, 100% 0, 100% 100%);
     }
     #names {
       margin: 20px;
@@ -85,7 +86,7 @@
         const slice = document.createElement('div');
         slice.className = 'slice';
         slice.style.backgroundColor = `hsl(${index * (360 / names.length)}, 70%, 50%)`;
-        slice.style.transform = `rotate(${index * sliceAngle}deg) translateY(-50%)`;
+        slice.style.transform = `rotate(${index * sliceAngle}deg)`;
         slice.textContent = name;
         wheel.appendChild(slice);
       });
