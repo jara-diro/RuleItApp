@@ -14,32 +14,49 @@
     h1 {
       color: #333;
     }
+    #wheel-container {
+      position: relative;
+      width: 350px;
+      height: 350px;
+      margin: 20px auto;
+    }
     #wheel {
       width: 300px;
       height: 300px;
       border-radius: 50%;
       border: 10px solid #ccc;
-      position: relative;
-      margin: 20px auto;
-      overflow: hidden;
-      transform: rotate(0deg);
-      transition: transform 3s ease-out;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
     }
-    .slice {
+    #pin {
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      border-radius: 50%;
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+    #names {
       position: absolute;
       width: 100%;
       height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      font-weight: bold;
-      color: #fff;
-      transform-origin: 50% 100%;
-      text-align: center;
-      clip-path: polygon(50% 50%, 100% 0, 100% 100%);
+      top: 0;
+      left: 0;
     }
-    #names {
+    .name {
+      position: absolute;
+      width: 100px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+    }
+    #names-input {
       margin: 20px;
     }
     input, button {
@@ -57,50 +74,14 @@
 </head>
 <body>
   <h1>Roulette Wheel</h1>
-  <div id="names">
+  <div id="names-input">
     <input type="text" id="nameInput" placeholder="Enter a name">
     <button onclick="addName()">Add Name</button>
   </div>
-  <div id="wheel"></div>
+  <div id="wheel-container">
+    <div id="wheel"></div>
+    <div id="pin"></div>
+    <div id="names"></div>
+  </div>
   <button onclick="spinWheel()">Spin the Wheel</button>
-  <div id="winner"></div>
-
-  <script>
-    let names = [];
-    const wheel = document.getElementById('wheel');
-    const winnerDiv = document.getElementById('winner');
-
-    function addName() {
-      const name = document.getElementById('nameInput').value.trim();
-      if (name) {
-        names.push(name);
-        document.getElementById('nameInput').value = '';
-        updateWheel();
-      }
-    }
-
-    function updateWheel() {
-      wheel.innerHTML = '';
-      const sliceAngle = 360 / names.length;
-      names.forEach((name, index) => {
-        const slice = document.createElement('div');
-        slice.className = 'slice';
-        slice.style.backgroundColor = `hsl(${index * (360 / names.length)}, 70%, 50%)`;
-        slice.style.transform = `rotate(${index * sliceAngle}deg)`;
-        slice.textContent = name;
-        wheel.appendChild(slice);
-      });
-    }
-
-    function spinWheel() {
-      if (names.length === 0) return;
-      const randomSpin = Math.floor(Math.random() * 3600) + 1800;
-      wheel.style.transform = `rotate(${randomSpin}deg)`;
-      setTimeout(() => {
-        const winnerIndex = Math.floor(Math.random() * names.length);
-        winnerDiv.textContent = `Winner: ${names[winnerIndex]}`;
-      }, 3000);
-    }
-  </script>
-</body>
-</html>
+  <div id="winner
