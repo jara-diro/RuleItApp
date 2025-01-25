@@ -40,6 +40,7 @@
       left: 50%;
       transform: translateX(-50%);
       z-index: 1;
+      transition: transform 3s ease-out;
     }
     #names {
       position: absolute;
@@ -108,25 +109,4 @@
         const nameElement = document.createElement('div');
         nameElement.className = 'name';
         nameElement.textContent = name;
-        const rad = (angle * index * Math.PI) / 180;
-        const x = 150 + 130 * Math.cos(rad);
-        const y = 150 + 130 * Math.sin(rad);
-        nameElement.style.left = `${x}px`;
-        nameElement.style.top = `${y}px`;
-        namesContainer.appendChild(nameElement);
-      });
-    }
-
-    function spinWheel() {
-      if (names.length === 0) return;
-      const randomSpin = Math.floor(Math.random() * 3600) + 1800;
-      pin.style.transition = 'transform 3s ease-out';
-      pin.style.transform = `rotate(${randomSpin}deg)`;
-      setTimeout(() => {
-        const winnerIndex = Math.floor(Math.random() * names.length);
-        winnerDiv.textContent = `Winner: ${names[winnerIndex]}`;
-      }, 3000);
-    }
-  </script>
-</body>
-</html>
+        const rad = (
